@@ -18,6 +18,9 @@ function rectangularShapeArea(y, x) {
     if (typeof arg === "function") {
       return [true, 'Negali buti "function"'];
     }
+    if (typeof arg === "undefined") {
+      return [true, 'Negali buti "undefined"'];
+    }
     return [false, "OK"];
   }
   if (y === null) {
@@ -47,12 +50,7 @@ function rectangularShapeArea(y, x) {
   }
 
   if (testArg(x)[0] === true) {
-    if (testArg(x)[1] == 'Negali buti "string"' || testArg(x)[1] === 'Negali buti "object"' || testArg(x)[1] == 'Negali buti "boolean"' || testArg(x)[1] == 'Negali buti "function"') {
-      return testArg(x);
-    }
-  }
-  if (typeof x === "undefined") {
-    return [true, 'Negali buti "undefined"'];
+    return testArg(x);
   }
 
   if (x < 0) {
