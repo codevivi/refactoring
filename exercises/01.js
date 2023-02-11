@@ -5,7 +5,7 @@
  * @returns
  */
 function rectangularShapeArea(y, x) {
-  function testArg(arg) {
+  function checkIfInvalidArg(arg) {
     let type = typeof arg;
     if (arg === null) {
       return [true, 'Negali buti "null"'];
@@ -16,16 +16,9 @@ function rectangularShapeArea(y, x) {
     if (arg < 0) {
       return [true, "Negali buti neigiamas"];
     }
-
-    return [false, "OK"];
+    return false;
   }
-  if (testArg(y)[0] === true) {
-    return testArg(y);
-  }
-  if (testArg(x)[0] === true) {
-    return testArg(x);
-  }
-  return [false, y * x];
+  return checkIfInvalidArg(y) || checkIfInvalidArg(x) || [false, y * x];
 }
 
 console.log(rectangularShapeArea(-10, 10), "-->", [true, "Negali buti neigiamas"]);
