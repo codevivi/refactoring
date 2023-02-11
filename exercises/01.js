@@ -44,6 +44,7 @@ function rectangularShapeArea(verticalSideLength, horizontal_walls_Size) {
   if (horizontal_walls_Size === null) {
     return [true, 'Negali buti "null"'];
   }
+
   if (numb(horizontal_walls_Size)[0] === true) {
     if (numb(horizontal_walls_Size)[1] == 'Negali buti "string"' || numb(horizontal_walls_Size)[1] === 'Negali buti "object"' || numb(horizontal_walls_Size)[1] == 'Negali buti "boolean"' || numb(horizontal_walls_Size)[1] == 'Negali buti "function"') {
       return numb(horizontal_walls_Size);
@@ -72,11 +73,18 @@ console.log(rectangularShapeArea(10, 10), "-->", [false, 100]);
 console.log(rectangularShapeArea(5, 4), "-->", [false, 20]);
 console.log(rectangularShapeArea(2, 8), "-->", [false, 16]);
 console.log(rectangularShapeArea(10, "10"), "-->", [true, `Negali buti "string"`]);
+console.log(rectangularShapeArea("10", 10), "-->", [true, `Negali buti "string"`]);
 console.log(rectangularShapeArea(10, "false"), "-->", [true, `Negali buti "string"`]);
+console.log(rectangularShapeArea("false", 10), "-->", [true, `Negali buti "string"`]);
 console.log(rectangularShapeArea(10, { a: 10 }), "-->", [true, `Negali buti "object"`]);
-console.log(rectangularShapeArea(10, {}), "-->", [true, `Negali buti "object"`]);
+console.log(rectangularShapeArea({ a: 10 }, 10), "-->", [true, `Negali buti "object"`]);
+console.log(rectangularShapeArea({}, 10), "-->", [true, `Negali buti "object"`]);
 console.log(rectangularShapeArea(10, false), "-->", [true, `Negali buti "boolean"`]);
+console.log(rectangularShapeArea(false, 10), "-->", [true, `Negali buti "boolean"`]);
 let testFunc = () => {};
 console.log(rectangularShapeArea(10, testFunc), "-->", [true, `Negali buti "function"`]);
+console.log(rectangularShapeArea(testFunc, 10), "-->", [true, `Negali buti "function"`]);
 console.log(rectangularShapeArea(10), "-->", [true, `Negali buti "undefined"`]);
+console.log(rectangularShapeArea(undefined, 10), "-->", [true, `Negali buti "undefined"`]);
 console.log(rectangularShapeArea(10, null), "-->", [true, `Negali buti "null"`]);
+console.log(rectangularShapeArea(null, 10), "-->", [true, `Negali buti "null"`]);
