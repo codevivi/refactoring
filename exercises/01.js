@@ -64,7 +64,26 @@ function rectangularShapeArea(verticalSideLength, horizontal_walls_Size) {
 
   const squarePart = smallerSide * smallerSide;
   const otherPart = (biggerSide - smallerSide) * smallerSide;
+  //There is no need to calculate area by dividing rectangular in two parts,
+  //Most known basic formula tu calculate rectangular area : multiply vertical and horizontal side;
+  //Below is my try to mathematically prove that it will yield same results:
+
+  //const TOTAL_SIZE =       squarePart          +      otherPart
+  //const TOTAL_SIZE = smallerSide * smallerSide + (biggerSide - smallerSide) * smallerSide
+  //smallerSide * biggerSide = smallerSide * smallerSide + (biggerSide - smallerSide) * smallerSide
+  // s * b = s * s + (b-s) * s
+  //sb = ss + sb - ss
+  //sb - sb = ss - ss
+  //0 = 0
+  //same will be true if you swap bigger side with smaller side
+  // b * s = b * b + (s-b) * b
+  //bs = bb + bs - bb
+  //bs - bs = bb - bb
+  //0 = 0
+
   const TOTAL_SIZE = squarePart + otherPart;
+  //Testing if another way to calculate area is same:
+  console.assert(TOTAL_SIZE === verticalSideLength * horizontal_walls_Size);
   return [false, TOTAL_SIZE];
 }
 
