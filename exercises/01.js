@@ -6,6 +6,9 @@
  */
 function rectangularShapeArea(y, x) {
   function testArg(arg) {
+    if (arg === null) {
+      return [true, 'Negali buti "null"'];
+    }
     if (typeof arg === "string") {
       return [true, 'Negali buti "string"'];
     }
@@ -21,28 +24,18 @@ function rectangularShapeArea(y, x) {
     if (typeof arg === "undefined") {
       return [true, 'Negali buti "undefined"'];
     }
+    if (arg < 0) {
+      return [true, "Negali buti neigiamas"];
+    }
+
     return [false, "OK"];
-  }
-  if (y === null) {
-    return [true, 'Negali buti "null"'];
   }
   if (testArg(y)[0] === true) {
     return testArg(y);
   }
-  if (y < 0) {
-    return [true, "Negali buti neigiamas"];
-  }
-  if (x === null) {
-    return [true, 'Negali buti "null"'];
-  }
-
   if (testArg(x)[0] === true) {
     return testArg(x);
   }
-  if (x < 0) {
-    return [true, "Negali buti neigiamas"];
-  }
-
   return [false, y * x];
 }
 
