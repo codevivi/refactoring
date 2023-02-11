@@ -26,22 +26,9 @@ function rectangularShapeArea(y, x) {
   if (y === null) {
     return [true, 'Negali buti "null"'];
   }
-  if (typeof y === "string") {
-    return [true, 'Negali buti "string"'];
+  if (testArg(y)[0] === true) {
+    return testArg(y);
   }
-  if (typeof y == "object") {
-    return [true, 'Negali buti "object"'];
-  }
-  if (typeof y === "boolean") {
-    return [true, 'Negali buti "boolean"'];
-  }
-  if (typeof y == "function") {
-    return [true, 'Negali buti "function"'];
-  }
-  if (typeof y == "undefined") {
-    return [true, 'Negali buti "undefined"'];
-  }
-
   if (y < 0) {
     return [true, "Negali buti neigiamas"];
   }
@@ -52,7 +39,6 @@ function rectangularShapeArea(y, x) {
   if (testArg(x)[0] === true) {
     return testArg(x);
   }
-
   if (x < 0) {
     return [true, "Negali buti neigiamas"];
   }
