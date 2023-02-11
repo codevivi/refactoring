@@ -20,6 +20,9 @@ function rectangularShapeArea(verticalSideLength, horizontal_walls_Size) {
     }
     return [false, "OK"];
   }
+  if (verticalSideLength === null) {
+    return [true, 'Negali buti "null"'];
+  }
   if (typeof verticalSideLength === "string") {
     return [true, 'Negali buti "string"'];
   }
@@ -35,9 +38,7 @@ function rectangularShapeArea(verticalSideLength, horizontal_walls_Size) {
   if (typeof verticalSideLength == "undefined") {
     return [true, 'Negali buti "undefined"'];
   }
-  if (verticalSideLength === null) {
-    return [true, 'Negali buti "null"'];
-  }
+
   if (verticalSideLength < 0) {
     return [true, "Negali buti neigiamas"];
   }
