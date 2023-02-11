@@ -1,65 +1,65 @@
 /**
  *
- * @param {*} verticalSideLength
- * @param {*} horizontal_walls_Size
+ * @param {*} y
+ * @param {*} x
  * @returns
  */
-function rectangularShapeArea(verticalSideLength, horizontal_walls_Size) {
-  function numb(nb) {
-    if (typeof nb === "string") {
+function rectangularShapeArea(y, x) {
+  function testArg(arg) {
+    if (typeof arg === "string") {
       return [true, 'Negali buti "string"'];
     }
-    if (typeof nb == "object") {
+    if (typeof arg == "object") {
       return [true, 'Negali buti "object"'];
     }
-    if (typeof nb == "boolean") {
+    if (typeof arg == "boolean") {
       return [true, 'Negali buti "boolean"'];
     }
-    if (typeof nb === "function") {
+    if (typeof arg === "function") {
       return [true, 'Negali buti "function"'];
     }
     return [false, "OK"];
   }
-  if (verticalSideLength === null) {
+  if (y === null) {
     return [true, 'Negali buti "null"'];
   }
-  if (typeof verticalSideLength === "string") {
+  if (typeof y === "string") {
     return [true, 'Negali buti "string"'];
   }
-  if (typeof verticalSideLength == "object") {
+  if (typeof y == "object") {
     return [true, 'Negali buti "object"'];
   }
-  if (typeof verticalSideLength === "boolean") {
+  if (typeof y === "boolean") {
     return [true, 'Negali buti "boolean"'];
   }
-  if (typeof verticalSideLength == "function") {
+  if (typeof y == "function") {
     return [true, 'Negali buti "function"'];
   }
-  if (typeof verticalSideLength == "undefined") {
+  if (typeof y == "undefined") {
     return [true, 'Negali buti "undefined"'];
   }
 
-  if (verticalSideLength < 0) {
+  if (y < 0) {
     return [true, "Negali buti neigiamas"];
   }
-  if (horizontal_walls_Size === null) {
+  if (x === null) {
     return [true, 'Negali buti "null"'];
   }
 
-  if (numb(horizontal_walls_Size)[0] === true) {
-    if (numb(horizontal_walls_Size)[1] == 'Negali buti "string"' || numb(horizontal_walls_Size)[1] === 'Negali buti "object"' || numb(horizontal_walls_Size)[1] == 'Negali buti "boolean"' || numb(horizontal_walls_Size)[1] == 'Negali buti "function"') {
-      return numb(horizontal_walls_Size);
+  if (testArg(x)[0] === true) {
+    if (testArg(x)[1] == 'Negali buti "string"' || testArg(x)[1] === 'Negali buti "object"' || testArg(x)[1] == 'Negali buti "boolean"' || testArg(x)[1] == 'Negali buti "function"') {
+      return testArg(x);
     }
   }
-  if (typeof horizontal_walls_Size === "undefined") {
+  if (typeof x === "undefined") {
     return [true, 'Negali buti "undefined"'];
   }
 
-  if (horizontal_walls_Size < 0) {
+  if (x < 0) {
     return [true, "Negali buti neigiamas"];
   }
 
-  return [false, verticalSideLength * horizontal_walls_Size];
+  return [false, y * x];
 }
 
 console.log(rectangularShapeArea(-10, 10), "-->", [true, "Negali buti neigiamas"]);
