@@ -6,23 +6,12 @@
  */
 function rectangularShapeArea(y, x) {
   function testArg(arg) {
+    let type = typeof arg;
     if (arg === null) {
       return [true, 'Negali buti "null"'];
     }
-    if (typeof arg === "string") {
-      return [true, 'Negali buti "string"'];
-    }
-    if (typeof arg == "object") {
-      return [true, 'Negali buti "object"'];
-    }
-    if (typeof arg == "boolean") {
-      return [true, 'Negali buti "boolean"'];
-    }
-    if (typeof arg === "function") {
-      return [true, 'Negali buti "function"'];
-    }
-    if (typeof arg === "undefined") {
-      return [true, 'Negali buti "undefined"'];
+    if (type !== "number") {
+      return [true, `Negali buti "${type}"`];
     }
     if (arg < 0) {
       return [true, "Negali buti neigiamas"];
