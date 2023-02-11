@@ -71,3 +71,12 @@ console.log(rectangularShapeArea(10, -10), "-->", [true, "Negali buti neigiamas"
 console.log(rectangularShapeArea(10, 10), "-->", [false, 100]);
 console.log(rectangularShapeArea(5, 4), "-->", [false, 20]);
 console.log(rectangularShapeArea(2, 8), "-->", [false, 16]);
+console.log(rectangularShapeArea(10, "10"), "-->", [true, `Negali buti "string"`]);
+console.log(rectangularShapeArea(10, "false"), "-->", [true, `Negali buti "string"`]);
+console.log(rectangularShapeArea(10, { a: 10 }), "-->", [true, `Negali buti "object"`]);
+console.log(rectangularShapeArea(10, {}), "-->", [true, `Negali buti "object"`]);
+console.log(rectangularShapeArea(10, false), "-->", [true, `Negali buti "boolean"`]);
+let testFunc = () => {};
+console.log(rectangularShapeArea(10, testFunc), "-->", [true, `Negali buti "function"`]);
+console.log(rectangularShapeArea(10), "-->", [true, `Negali buti "undefined"`]);
+console.log(rectangularShapeArea(10, null), "-->", [true, `Negali buti "null"`]);
