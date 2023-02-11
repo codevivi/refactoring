@@ -1,24 +1,22 @@
 /**
  *
- * @param {*} y
- * @param {*} x
- * @returns
+ * @param {number} y - rectangular vertical side length, positive number
+ * @param {number} x - rectangular horizontal side length, positive number
+ * @returns {Array} array with 2 elements: boolean - showing invalid argument and (string - failure message or number - calculated rectangular area)
  */
 function rectangularShapeArea(y, x) {
+  return checkIfInvalidArg(y) || checkIfInvalidArg(x) || [false, y * x];
+
   function checkIfInvalidArg(arg) {
     let type = typeof arg;
-    if (arg === null) {
-      return [true, 'Negali buti "null"'];
-    }
     if (type !== "number") {
-      return [true, `Negali buti "${type}"`];
+      return [true, `Negali buti "${arg === null ? "null" : type}"`];
     }
     if (arg < 0) {
       return [true, "Negali buti neigiamas"];
     }
     return false;
   }
-  return checkIfInvalidArg(y) || checkIfInvalidArg(x) || [false, y * x];
 }
 
 console.log(rectangularShapeArea(-10, 10), "-->", [true, "Negali buti neigiamas"]);
