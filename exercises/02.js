@@ -12,7 +12,7 @@ function marksAverages_forEvery_student(list) {
     if (name == "Maryte") {
       let sum = 0;
       for (let i = 0; i < marks.length; i++) {
-        // should be some sort of validation... IS IT ABOUT FILTERING GRADES ????
+        // should be some sort of validation... It is probably about check if not grades in a list
         // can not remember what...
         sum += marks[i];
       }
@@ -20,6 +20,7 @@ function marksAverages_forEvery_student(list) {
       // console.log(`${name} mark average is ${average}.`);
       notifications.push(`${name} mark average is ${average}.`);
     } else if (name === "Jonas") {
+      //this is not a way of counting average, it should not be a task for this function to filter grades, and it does not for other students, so I will remove it. And unify average counting for all students.
       let count = marks.length;
       let sum = 0;
       while (count) {
