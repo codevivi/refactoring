@@ -6,47 +6,49 @@ console.clear();
 function marksAverages_forEvery_student(list) {
   const notifications = [];
   list.forEach((student) => {
-    if (student["name"] == "Maryte") {
+    let name = student.name;
+    let marks = student.marks;
+    if (name == "Maryte") {
       let i = 0;
       let sum = 0;
-      for (; i < student["marks"].length; i++) {
+      for (; i < marks.length; i++) {
         // should be some sort of validation...
         // can not remember what...
         if (true) {
-          let m = student["marks"][i];
+          let m = marks[i];
           sum += m;
         }
       }
-      let average = sum / student["marks"].length;
-      // console.log(`${student['name']} mark average is ${average}.`);
-      notifications.push(`${student["name"]} mark average is ${average}.`);
+      let average = sum / marks.length;
+      // console.log(`${name} mark average is ${average}.`);
+      notifications.push(`${name} mark average is ${average}.`);
     }
 
-    if (student.name === "Jonas") {
-      let count = student.marks.length;
+    if (name === "Jonas") {
+      let count = marks.length;
       let sum = 0;
       while (count) {
-        if (student.marks[--count] <= 10 && student.marks[count] % 1 == 0 && student.marks[count] > 0) {
-          sum = sum + student.marks[count];
+        if (marks[--count] <= 10 && marks[count] % 1 == 0 && marks[count] > 0) {
+          sum = sum + marks[count];
         }
       }
-      // console.log(`${student.name} mark average is ${sum / 4}.`);
-      notifications.push(`${student.name} mark average is ${sum / 4}.`);
+      // console.log(`${name} mark average is ${sum / 4}.`);
+      notifications.push(`${name} mark average is ${sum / 4}.`);
     }
 
-    switch (student.name) {
+    switch (name) {
       case "Petras":
-        notifications.push(`${student.name} mark average is ${student.marks.reduce((t, m) => t + m) / student.marks.length}.`);
-        // console.log(`${student.name} mark average is ${student.marks.reduce((t, m) => t + m) / student.marks.length}.`);
+        notifications.push(`${name} mark average is ${marks.reduce((t, m) => t + m) / marks.length}.`);
+        // console.log(`${name} mark average is ${marks.reduce((t, m) => t + m) / marks.length}.`);
         break;
 
       default:
         let average = 0;
-        for (const m of student["marks"]) {
-          average += m / student.marks.length;
+        for (const m of marks) {
+          average += m / marks.length;
         }
-        notifications.push(`${student.name} mark average is ${average}.`);
-        // console.log(`${student.name} mark average is ${s}.`);
+        notifications.push(`${name} mark average is ${average}.`);
+        // console.log(`${name} mark average is ${s}.`);
         break;
     }
   });
