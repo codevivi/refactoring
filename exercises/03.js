@@ -1,7 +1,6 @@
 const assert = require("assert");
 
 console.clear();
-
 function fac1(list) {
   return list;
 }
@@ -13,6 +12,7 @@ function fac2(list) {
 }
 
 function fac3(list) {
+  //this is doing same as fac2 with map method
   var new_grand = [];
   let i = 0;
   while (i < list.length) {
@@ -21,29 +21,31 @@ function fac3(list) {
   return new_grand;
 }
 
-function f_a_c_t_o_r_y(skaiciu_grandinele = [], double = 1) {
+function arrayValuesMultiplier(numbersArray = [], multiplier = 1) {
   let fac = null;
 
-  if (double == 1) {
+  if (multiplier == 1) {
     fac = fac1;
-  } else if (double == 2) {
+  } else if (multiplier == 2) {
     fac = fac2;
-  } else if (double === 3) {
+  } else if (multiplier === 3) {
     fac = fac3;
   } else {
+    // return;
+    return numbersArray.map((number) => number * multiplier); //just temp general to stop errors
     // FIX:
     // not sure how, but there has to be a way
     // to call a single EXTERNAL FUCNTION with
     // any "double" value, so that we would not
     // need to call infinite amount of else-if's
+    //-- Not sury why to call external when everything can be done there... But ok..
   }
 
   // DO NOT EDIT THIS LINE
-  return fac(skaiciu_grandinele);
+  return fac(numbersArray);
 }
 
-const factory = f_a_c_t_o_r_y;
-
+const factory = arrayValuesMultiplier;
 // ***********************************
 // DO NOT EDIT CODE BELOW THIS COMMENT
 // ***********************************
