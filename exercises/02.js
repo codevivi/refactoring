@@ -1,34 +1,25 @@
 console.clear();
 /**
- * Should print notification for each student.
- * @param {*} list
+ * @param {Array} list
+ * @returns {Array} list with strings - messages showing grades for every student
  */
-// I still don't understand if this funcion meant to filter grades (like it is doing for Jonas),
-// or just calculate average from all (like in switch default) where it is just missing Math.round(average) to pass test for Jonas
-//currently both variants are pushed to notifications, what messes accsess by index in assert tests.
-//so what functionality was meant to be? Filter or Not To Filter?
+
 function marksAverages_forEvery_student(list) {
   const notifications = [];
   list.forEach((student) => {
     let name = student.name;
     let marks = student.marks;
     if (name == "Maryte") {
-      let i = 0;
       let sum = 0;
-      for (; i < marks.length; i++) {
+      for (let i = 0; i < marks.length; i++) {
         // should be some sort of validation... IS IT ABOUT FILTERING GRADES ????
         // can not remember what...
-        if (true) {
-          let m = marks[i];
-          sum += m;
-        }
+        sum += marks[i];
       }
       let average = sum / marks.length;
       // console.log(`${name} mark average is ${average}.`);
       notifications.push(`${name} mark average is ${average}.`);
-    }
-
-    if (name === "Jonas") {
+    } else if (name === "Jonas") {
       let count = marks.length;
       let sum = 0;
       while (count) {
@@ -38,34 +29,24 @@ function marksAverages_forEvery_student(list) {
       }
       // console.log(`${name} mark average is ${sum / 4}.`);
       notifications.push(`${name} mark average is ${sum / 4}.`);
-    }
+    } else if (name === "Petras") {
+      notifications.push(`${name} mark average is ${marks.reduce((t, m) => t + m) / marks.length}.`);
+      console.log(`${name} mark average is ${marks.reduce((t, m) => t + m) / marks.length}.`);
+    } else {
+      let average = 0;
+      for (const m of marks) {
+        average += m / marks.length;
+      }
+      // counting average this way is same as summing all marks and dividing form marks quantity;
+      // (a + b + c) / n = a/n + b/n + c/n
+      // a/n + b/n +c/n - a/n -b/n -c/n = 0
+      // 0=0
 
-    switch (name) {
-      case "Petras":
-        notifications.push(`${name} mark average is ${marks.reduce((t, m) => t + m) / marks.length}.`);
-        // console.log(`${name} mark average is ${marks.reduce((t, m) => t + m) / marks.length}.`);
-        break;
-
-      default:
-        console.log(name);
-        let average = 0;
-        for (const m of marks) {
-          average += m / marks.length;
-        }
-        notifications.push(`${name} mark average is ${average}. FROM SWITCH DEFAULT`);
-        // console.log(`${name} mark average is ${s}.`);
-        break;
+      // console.log(`${name} mark average is ${s}.`);
+      notifications.push(`${name} mark average is ${average}.`);
     }
   });
   console.log(notifications);
-  //   [
-  //   'Petras mark average is 6.',
-  //   'Maryte mark average is 7.',
-  //   'Maryte mark average is 7. FROM SWITCH DEFAULT',
-  //   'Jonas mark average is 6.',
-  //   'Jonas mark average is 6.385714285714286. FROM SWITCH DEFAULT',
-  //   'Ona mark average is 0. FROM SWITCH DEFAULT'
-  // ]
   return notifications;
 }
 
